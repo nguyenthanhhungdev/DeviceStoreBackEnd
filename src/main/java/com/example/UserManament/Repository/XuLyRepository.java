@@ -5,7 +5,8 @@
 package com.example.UserManament.Repository;
 
 
-import com.example.UserManament.Entity.Thietbi;
+import com.example.UserManament.Entity.Xuly;
+import java.util.List;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,12 +15,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface ThietBiRepository extends CrudRepository<Thietbi,Integer>{
+public interface XuLyRepository extends CrudRepository<Xuly, Integer> {
     @Modifying
     @Transactional
+    @Query("DELETE FROM XuLy x WHERE x.maTV = :maTV")
+    void deleteByMaTV(@Param("maTV") Integer maTV);
+    
+    @Query("SELECT x FROM XuLy x") // Truy vấn SELECT * FROM XuLy
+    List<Xuly> findAll();
     
     // Thêm phương thức để lấy mã tiếp theo được tăng
-    @Query(value = "SELECT MAX(maXL) FROM ThietBi", nativeQuery = true)
+    @Query(value = "SELECT MAX(maXL) FROM XuLy", nativeQuery = true)
     Integer getNextAutoIncrementValue();
-    
+
 }

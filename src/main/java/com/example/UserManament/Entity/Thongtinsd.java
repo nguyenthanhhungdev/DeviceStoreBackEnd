@@ -39,16 +39,16 @@ public class Thongtinsd {
         this.id = id;
     }
 
-    public Thanhvien getMaTV() {
-        return maTV;
+    public int getMaTV() {
+        return maTV.getId();
     }
 
     public void setMaTV(Thanhvien maTV) {
         this.maTV = maTV;
     }
 
-    public Thietbi getMaTB() {
-        return maTB;
+    public int getMaTB() {
+        return maTB.getId();
     }
 
     public void setMaTB(Thietbi maTB) {
