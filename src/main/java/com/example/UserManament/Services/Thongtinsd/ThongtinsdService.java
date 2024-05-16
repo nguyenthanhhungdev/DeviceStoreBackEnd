@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.example.UserManament.Model.Thongtinsd;
+package com.example.UserManament.Services.Thongtinsd;
 
-import com.example.UserManament.Model.Gerneric;
+import com.example.UserManament.Services.Gerneric;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,8 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author LE HOANG
  */
-public interface ThongtinsdModel<Thongtinsd> extends Gerneric<Thongtinsd >  {
-    @Autowired
+public interface ThongtinsdService<Thongtinsd> extends Gerneric<Thongtinsd >  {
     Iterable<Thongtinsd> findAll();
     List<Thongtinsd> search(String term);
     Thongtinsd add(Thongtinsd tv);

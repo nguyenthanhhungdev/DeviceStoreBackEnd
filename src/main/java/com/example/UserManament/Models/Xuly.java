@@ -1,4 +1,4 @@
-package com.example.UserManament.Entity;
+package com.example.UserManament.Models;
 
 import jakarta.persistence.*;
 

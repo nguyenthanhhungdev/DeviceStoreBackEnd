@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.UserManament.Model.Thongtinsd;
+package com.example.UserManament.Services.Thongtinsd;
 
-import com.example.UserManament.Entity.Thongtinsd;
+import com.example.UserManament.Models.Thongtinsd;
 
 
-import com.example.UserManament.Repository.ThongTinSDRepository;
+import com.example.UserManament.Repositorys.ThongTinSDRepository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Vi Hao
  */
 @Service
-public class ThongTinSDModelImpl implements ThongtinsdModel {
+public class ThongTinSDServiceImpl implements ThongtinsdService<Thongtinsd> {
     @Autowired
     private ThongTinSDRepository thongTinSDRepository;
 
@@ -119,5 +119,15 @@ public class ThongTinSDModelImpl implements ThongtinsdModel {
     @Override
     public ArrayList<Thongtinsd> getThietBiDangMuonTrongNam(int year) {
         return thongTinSDRepository.getThietBiDangMuonTrongNam(year);
+    }
+
+    @Override
+    public List<Thongtinsd> getAll() {
+        return List.of();
+    }
+
+    @Override
+    public Thongtinsd getById(int id) {
+        return null;
     }
 }

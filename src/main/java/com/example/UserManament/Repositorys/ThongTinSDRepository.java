@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.example.UserManament.Repository;
+package com.example.UserManament.Repositorys;
 
 
-import com.example.UserManament.Entity.Thongtinsd;
+import com.example.UserManament.Models.Thongtinsd;
 import java.util.ArrayList;
 import java.util.Date;
 import org.springframework.data.jpa.repository.Modifying;

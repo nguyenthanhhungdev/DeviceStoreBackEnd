@@ -1,9 +1,9 @@
-package com.example.UserManament.Model.Thietbi;
+package com.example.UserManament.Services.Thietbi;
 
-import com.example.UserManament.Entity.Thietbi;
-import com.example.UserManament.Repository.ThietBiRepository;
-import com.example.UserManament.Repository.ThongTinSDRepository;
-import com.example.UserManament.Repository.XuLyRepository;
+import com.example.UserManament.Models.Thietbi;
+import com.example.UserManament.Repositorys.ThietBiRepository;
+import com.example.UserManament.Repositorys.ThongTinSDRepository;
+import com.example.UserManament.Repositorys.XuLyRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;
 @Service
-public class ThietBiModelImpl implements ThietbiModel<Thietbi> {
+public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
 
     @Autowired
     private ThietBiRepository ThietBiRepository;

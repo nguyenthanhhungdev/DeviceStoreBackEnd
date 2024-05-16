@@ -1,4 +1,4 @@
-package com.example.UserManament.Model;
+package com.example.UserManament.Services;
 
 import java.util.List;
 
