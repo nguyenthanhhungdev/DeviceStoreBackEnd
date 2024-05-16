@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
 
     @Autowired
-    private ThietBiRepository ThietBiRepository;
+    private ThietBiRepository thietBiRepository;
     @Autowired
     private XuLyRepository xuLyRepository; 
     @Autowired
@@ -23,7 +23,7 @@ public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
     
     @Override
     public Iterable<Thietbi> findAll() {
-        return ThietBiRepository.findAll();
+        return thietBiRepository.findAll();
     }
     
     @Override
@@ -38,7 +38,7 @@ public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
     
      @Override
     public List<Thietbi> listForSearch() {
-        Iterable<Thietbi> iterable = ThietBiRepository.findAll();
+        Iterable<Thietbi> iterable = thietBiRepository.findAll();
 
         List<Thietbi> list = new ArrayList<>();
         iterable.forEach(list::add);
@@ -47,22 +47,22 @@ public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
     }
     @Override
     public Thietbi add(Thietbi tv) {
-        return ThietBiRepository.save(tv);
+        return thietBiRepository.save(tv);
     }
 
     @Override
     public Thietbi update(Thietbi tv) {
-        return ThietBiRepository.save(tv);
+        return thietBiRepository.save(tv);
     }
 
     @Override
     public Optional<Thietbi> findById(Integer id) { // handle case if Thietbi does not exist in database
-        return ThietBiRepository.findById(id);
+        return thietBiRepository.findById(id);
     }
 
     @Override
     public int maxID() {
-        return ThietBiRepository.getNextAutoIncrementValue();
+        return thietBiRepository.getNextAutoIncrementValue();
     }
     
     
@@ -72,13 +72,17 @@ public class ThietBiServiceImpl implements ThietbiService<Thietbi> {
         System.out.println(id);
         xuLyRepository.deleteByMaTV(id);
         thongTinSDRepository.deleteByMaTV(id);
-        ThietBiRepository.deleteById(id);
+        thietBiRepository.deleteById(id);
     }
 
     @Override
     public List<Thietbi> getAll() {
         List<Thietbi> target = new ArrayList<>();
-        ThietBiRepository.findAll().forEach(target::add);
+        thietBiRepository.findAll().forEach(target::add);
         return target;
+    }
+    @Override
+    public List<Thietbi> findByMaTV(Integer maTV) {
+        return thietBiRepository.findByMaTV(maTV);
     }
 }

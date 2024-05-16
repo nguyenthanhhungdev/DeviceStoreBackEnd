@@ -6,6 +6,7 @@ package com.example.UserManament.Controllers;
 
 import com.example.UserManament.Models.Thanhvien;
 import com.example.UserManament.Services.ThanhVien.ThanhvienService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +48,7 @@ public class ThanhVienController {
     }
 
     @PostMapping(value="/login")
-    public String login(@RequestParam("username") int MaTV,@RequestParam("password")  String password, Model model) {
+    public String login(@RequestParam("username") int MaTV, @RequestParam("password")  String password, Model model, HttpSession session) {
 
         System.out.println(MaTV);
         System.out.println(password);
@@ -55,9 +56,10 @@ public class ThanhVienController {
         Thanhvien user = um.login(MaTV, password);
         if (user != null) {
             model.addAttribute("user", user);
+            session.setAttribute("user", user); // lưu user vào session
             return "Home";
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/process_register")

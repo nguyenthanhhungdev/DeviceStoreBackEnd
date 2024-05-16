@@ -1,5 +1,6 @@
 package com.example.UserManament.Services.Thietbi;
 
+import com.example.UserManament.Models.Thietbi;
 import com.example.UserManament.Services.Gerneric;
 
 import java.util.List;
@@ -23,4 +24,5 @@ public interface ThietbiService<Thietbi> extends Gerneric<Thietbi> {
     void deleteAllById(Integer id);
 
     int maxID();
+    List<Thietbi> findByMaTV(Integer maTV);
 }

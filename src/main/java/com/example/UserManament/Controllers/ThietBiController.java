@@ -1,11 +1,13 @@
 package com.example.UserManament.Controllers;
 
+import com.example.UserManament.Models.Thanhvien;
 import com.example.UserManament.Models.Thietbi;
 import com.example.UserManament.Models.Thongtinsd;
 import com.example.UserManament.Services.Thietbi.ThietbiService;
 import java.util.ArrayList;
 
 import com.example.UserManament.Services.Thongtinsd.ThongtinsdService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +28,16 @@ public class ThietBiController {
     @Autowired
     private ThietbiService thietbiService;
 
-    @GetMapping("/thiet-bi")
-    @ResponseBody
-    public List<Thietbi> getAllThietBi() {
-        return thietbiService.getAll();
+    @GetMapping("/thiet-bi-da-muon")
+    public String getAllThietBiDaMuon(Model model, HttpSession httpSession) {
+        Thanhvien user = (Thanhvien) httpSession.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+
+        List<Thietbi> userThietbi = thietbiService.findByMaTV(user.getId());
+        model.addAttribute("userThietbi", userThietbi);
+        return "thietbi_da_muon";
     }
     
 
